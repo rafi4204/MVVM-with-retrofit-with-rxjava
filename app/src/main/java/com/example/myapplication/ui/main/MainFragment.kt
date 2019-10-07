@@ -35,9 +35,9 @@ class MainFragment : Fragment() {
 
         recyclerView.layoutManager = LinearLayoutManager(context)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        viewModel.setRepo()
-        viewModel.employee?.observe(this, Observer<List<Employee>> {
-            Log.d("2", it[0].employee_name)
+        viewModel.setEmployee()
+        viewModel.employee.observe(this, Observer<List<Employee>> {
+          //  Log.d("2", it[0].employee_name)
 
             recyclerView.adapter = CustomAdapter(context!!, it)
 
